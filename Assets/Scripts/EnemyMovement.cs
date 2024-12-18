@@ -16,14 +16,14 @@ public class EnemyMovement : MonoBehaviour
         navMeshAgent = GetComponent<NavMeshAgent>();
     }
 
- // Update is called once per frame.
- void Update()
-    {
- // If there's a reference to the player...
- if (player != null)
-        {    
- // Set the enemy's destination to the player's current position.
-            navMeshAgent.SetDestination(player.position);
-        }
+// Update is called once per frame.
+void Update()
+{
+    // If there's a reference to the player and the agent is active and on a NavMesh...
+    if (player != null && navMeshAgent.isActiveAndEnabled && navMeshAgent.isOnNavMesh)
+    {    
+        // Set the enemy's destination to the player's current position.
+        navMeshAgent.SetDestination(player.position);
     }
+}
 }
